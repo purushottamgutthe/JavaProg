@@ -1,9 +1,13 @@
-public class GenericTypeBounded {
-
+public class GenericTypeBounded implements InnerGenericTypeBounded <MainType>{
+    public static void main(String[] args) {
+        MainType mainType = new MainType(1, 58000, "Pallavi Purushottam Gutthe");
+ 
+    }
 }
 
-public interface InnerGenericTypeBounded<Type extends MainType> {
-    
+interface InnerGenericTypeBounded<Type extends MainType> {
+    void show(Type type);
+    Type get();
 }
 
 class MainType{
