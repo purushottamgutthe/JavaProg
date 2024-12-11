@@ -8,7 +8,7 @@ public class GenericTypeBounded implements InnerGenericTypeBounded<MainType> {
     }
 
     public static void main(String[] args) {
-        MainType mainType = new MainType(1, 58000, "Pallavi Purushottam Gutthe");
+        MainType mainType = new MainType(1, 58000, "Pallavi Purushottam Gutthe");  //This code is generated from chatGPT
         GenericTypeBounded generic = new GenericTypeBounded(mainType);
 
         // Display the details using the show() method
