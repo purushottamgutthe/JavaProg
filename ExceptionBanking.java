@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class ExceptionBanking {
     public static void main(String[] args) throws WithdrawAmountExceedingDeposit{
         AcountHolder acountHolder1 = 
-            new AcountHolder("Purushottam Bharat Gutthe", "Plot no:03 Shrushti Society Kalyani nagar, Pune", "Businessman", 48351190);
+            new AcountHolder("Purushottam Bharat Gutthe", "Plot no:03 Shrushti Society Kalyani nagar, Pune", "Businessman", 483);
         AcountHolder acountHolder2 = 
-            new AcountHolder("Pallavi Purushottam Gutthe", "Plot no:03 Shrushti Society Kalyani nagar, Pune", "Doctor", 2500000);
+            new AcountHolder("Pallavi Purushottam Gutthe", "Plot no:03 Shrushti Society Kalyani nagar, Pune", "Doctor", 250);
         System.out.println("Husbands Details: ");
         acountHolder1.checkDetails();
         System.out.println("Wifes Details: ");
@@ -51,17 +51,20 @@ class AcountHolder{
         System.out.println("Deposit: "+deposit);
     }
     
-    public Boolean withdrawAmount(Double withdrawAmount) throws WithdrawAmountExceedingDeposit{
-        if(withdrawAmount>deposit)
-            throw new WithdrawAmountExceedingDeposit("Withdraw Amount is greater than Deposit, Request Dimissed");
-        else
-            return true;
+    public void withdrawAmount(Double withdrawAmount) throws WithdrawAmountExceedingDeposit{
+        if(withdrawAmount>deposit){
+            System.out.println(withdrawAmount+ "Withdraw,  Deposit "+deposit);
+            throw new WithdrawAmountExceedingDeposit();
+        }else{
+            deposit-=withdrawAmount;
+            System.out.println("Amount has been deducted from your account, current balance is: "+ deposit);
+        }
     }
 
 }
 
 class WithdrawAmountExceedingDeposit extends Exception{
-    public WithdrawAmountExceedingDeposit(String message){
-        super(message);
+    public WithdrawAmountExceedingDeposit(){
+        super("Withdraw Amount is greater than Deposit, Request Dismissed");
     }
 }
