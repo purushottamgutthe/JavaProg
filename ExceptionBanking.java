@@ -31,3 +31,9 @@ class AcountHolder{
     }
 
 }
+
+class WithdrawAmountExceedingDeposit extends Exception{
+    public WithdrawAmountExceedingDeposit(){
+        super("Withdraw Amount is greater than Deposit, Request Dimissed");
+    }
+}
